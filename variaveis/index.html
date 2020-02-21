@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Variáveis, Let, Contant e Hoisting</title>
+
+  <link rel="stylesheet" href="../reset.css">
+
+</head>
+<body>
+  <header>
+    <h1>Um pouco sobre variáveis, let e const.</h1>
+    <p>Para visualizar abra o Chrome DevOps</p>
+  </header>
+
+  <script>        
+    /********** VAR ***********/
+
+    /** 
+      Uma variável de contexto global sempre que declarada (var),
+      acaba sendo movida para o topo do Escopo Global da aplicação,
+      caso seu valor não seja definido por padrão é atribuído o valor undefined.
+      Esse processo é chamado de Hoisting.
+    */
+    console.log('********** VAR ***********');
+
+    var helloWorld;    
+
+    console.info(`Valor definido em helloWorld: ${helloWorld}`); // undefined    
+
+    helloWorld = 'Hello World';
+
+    console.info(`Resultado após a definição de valores em helloWorld: ${helloWorld}`); // Resultado: Hello World    
+    console.log('');
+    
+    /********** LET ***********/
+
+    /**      
+      Diferentemente de var, variáveis do tipo let trabalham dentro do escopo
+      local de uma aplicação. Sendo assim só podem ser acessadas de forma local.
+    */  
+
+    console.log('********** LET ***********');
+    console.log('Executanto loop for com declaração global');
+
+    for (var index = 0; index < 2; index++) {
+      console.log(`Resultado valor do Loop: ${index}`); // Impressão por loop: 0, 1
+    }
+
+    /**
+      Por ser uma variável global, index ainda está disponível no escopo da 
+      aplicação. Isso é um ponto de anteção.
+    */
+
+    console.log(`Resultado após a execução do FOR: ${index}`); // Impressão depois do loop: 2
+    console.log('');
+    
+    /**
+      Mesmo exemplo executado com a declaração let
+    */      
+    console.log('Executanto loop for com declaração let');
+
+    for (let indexLet = 0; indexLet < 2; indexLet++) {
+      console.log(`Resultado Loop com Let: ${indexLet}`); // Impressão por loop: 0, 1
+    }
+
+    /**
+      try e catch servem para realizar tratamento de erros em algumas linguagens
+      de programação. Futuramente falaremos mais sobre.
+    */
+    try {
+      console.log(`Resultado após a execução do FOR: ${indexLet}`);      
+
+    } catch (error) {
+      /**
+        A mensagem exibida indica que a variável undexLet não está declarada.
+        De fato ele existe apenas no escopo do for, assim que a execução termina
+        ela é eliminada da memória física do browser ou plataforma.
+        ERROR: ReferenceError: indexLet is not defined
+      */
+      console.warn(`Resultado da validação de impressão do console.log() dentro do Try: ${error}`);
+      console.log('');
+    }    
+
+    /********** CONST ***********/
+
+    /**
+      CONST
+      const são declarados sempre que algum valor não pode sofrer "mutações".
+      Assim como LET, CONST são variáveis que pertencem ao escopo local de uma aplicação,
+      e, sempre que declaradas devem ter seus valores inicializados.
+
+      Existem algumas exeções em relação ao estado de uma CONST quando utilizadas em objetos
+      e arrays (que são tratados como objetos em JS).
+
+      CONST não pode ser reatribuídas.
+    */ 
+
+    console.log('********** CONST ***********');
+
+    const CASA = 'Home';   
+
+    console.log(`Valor da CONST CASA: ${CASA}`); // Valor da CONST CASA: Home    
+
+    /**
+      try e catch servem para realizar tratamento de erros em algumas linguagens
+      de programação. Futuramente falaremos mais sobre.
+    */
+    try {
+      // Aqui estamos tentando atribuir um novo valor a CONST CASA.
+      CASA = 'Nova CASA';
+
+    } catch (error) {
+      /**
+        O erro refere a tentativa de reasinatura de uma CONST já declarada.
+        ERROR: TypeError: Assignment to constant variable.
+      */
+      console.warn(`Resultado da tentativa de reasinar a CONST CASA: ${error}`);
+      // ERROR: TypeError: Assignment to constant variable.
+      console.log('');
+    }
+
+    // Um exemplo básico com um Objeto
+    const PESSOA = {
+      nome: 'Paulo',
+      idade: 25
+    }
+
+    console.log(`Valor da CONST PESSOA ${JSON.stringify(PESSOA)}`);
+    // Valor da CONST PESSOA {"nome":"Paulo","idade":25}
+
+    // Vamos reatribuir um valor de algum atributo do Obejto PESSOA
+    PESSOA.nome = 'José';
+
+    console.log(`Valor da CONST PESSOA ${JSON.stringify(PESSOA)}`);
+    // Valor da CONST PESSOA {"nome":"José","idade":25}
+    console.log('');
+    /** 
+      Percebam que nenhum erro foi apresentado. Isso por que não foi alterado o tipo
+      da CONSTANTE, apenas foi modificado um atributo.
+    */
+
+    // Então vamos tentar alterar seu tipo
+
+    try {
+      /**
+        Aqui estamos tentando atribuir um novo tipo em PESSOA, antes era um objeto, e, 
+        agora estamos atribuir um tipo Array.
+      */      
+      
+      PESSOA = [];       
+      
+    } catch (error) {      
+      /**
+        O erro refere a tentativa de reasinatura de uma CONST já declarada.
+        ERROR: TypeError: Assignment to constant variable.
+      */
+      console.warn(`Resultado da tentativa de reasinar a CONST PESSOA: ${error}`);
+      // ERROR: TypeError: Assignment to constant variable.
+      console.log(''); // Inserin
+    }
+
+    /**
+      Perceba que o mesmo acontece com Arrays, que podem ser alterado seu valor,
+      mas não seu tipo.
+    */
+    const ESCOLA = []
+    Uma variável de contexto global sempre que declarada (var), acaba sendo movida para o topo do Escopo Global da aplish('Classe');
+    ESCOLA.push('Giz');
+
+    console.log(`Valor da CONST ESCOLA: ${JSON.stringify(ESCOLA)}`);
+    
+    try {
+      /**
+        Aqui estamos tentando atribuir um novo tipo em ESCOLA, antes era um Array, e, 
+        agora estamos atribuir um tipo String.
+      */      
+      
+      ESCOLA = [];       
+      
+    } catch (error) {      
+      /**
+        O erro refere a tentativa de reasinatura de uma PESSOA já declarada.
+        ERROR: TypeError: Assignment to constant variable.
+      */
+      console.warn(`Resultado da tentativa de reasinar a CONST ESCOLA: ${error}`);
+      // ERROR: TypeError: Assignment to constant variable.
+      console.log(''); // Inserin
+    }
+
+  </script>
+</body>
+</html>
