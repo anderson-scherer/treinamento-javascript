@@ -51,9 +51,8 @@
 
     /**
       Por ser uma variável global, index ainda está disponível no escopo da 
-      aplicação. Isso é um ponto de anteção.
-    */
-
+      aplicação. Isso é um ponto de atenção.
+    */    
     console.log(`Resultado após a execução do FOR: ${index}`); // Impressão depois do loop: 2
     console.log('');
     
@@ -67,7 +66,7 @@
     }
 
     /**
-      try e catch servem para realizar tratamento de erros em algumas linguagens
+      Try e Catch servem para realizar tratamento de erros em algumas linguagens
       de programação. Futuramente falaremos mais sobre.
     */
     try {
@@ -76,7 +75,7 @@
     } catch (error) {
       /**
         A mensagem exibida indica que a variável undexLet não está declarada.
-        De fato ele existe apenas no escopo do for, assim que a execução termina
+        De fato, ele existe apenas no escopo do for, assim que a execução termina
         ela é eliminada da memória física do browser ou plataforma.
         ERROR: ReferenceError: indexLet is not defined
       */
@@ -88,11 +87,11 @@
 
     /**
       CONST
-      const são declarados sempre que algum valor não pode sofrer "mutações".
+      Const são declarados sempre que algum valor não pode sofrer "mutações".
       Assim como LET, CONST são variáveis que pertencem ao escopo local de uma aplicação,
       e, sempre que declaradas devem ter seus valores inicializados.
 
-      Existem algumas exeções em relação ao estado de uma CONST quando utilizadas em objetos
+      Existem algumas exceções  em relação ao estado de uma CONST quando utilizadas em objetos
       e arrays (que são tratados como objetos em JS).
 
       CONST não pode ser reatribuídas.
@@ -105,7 +104,7 @@
     console.log(`Valor da CONST CASA: ${CASA}`); // Valor da CONST CASA: Home    
 
     /**
-      try e catch servem para realizar tratamento de erros em algumas linguagens
+      Try e Catch servem para realizar tratamento de erros em algumas linguagens
       de programação. Futuramente falaremos mais sobre.
     */
     try {
@@ -114,7 +113,7 @@
 
     } catch (error) {
       /**
-        O erro refere a tentativa de reasinatura de uma CONST já declarada.
+        O erro refere a tentativa de assinar novamente uma CONST já declarada. 
         ERROR: TypeError: Assignment to constant variable.
       */
       console.warn(`Resultado da tentativa de reasinar a CONST CASA: ${error}`);
@@ -131,7 +130,7 @@
     console.log(`Valor da CONST PESSOA ${JSON.stringify(PESSOA)}`);
     // Valor da CONST PESSOA {"nome":"Paulo","idade":25}
 
-    // Vamos reatribuir um valor de algum atributo do Obejto PESSOA
+    // Vamos reatribuir um valor de algum atributo do Objeto PESSOA
     PESSOA.nome = 'José';
 
     console.log(`Valor da CONST PESSOA ${JSON.stringify(PESSOA)}`);
@@ -154,7 +153,7 @@
       
     } catch (error) {      
       /**
-        O erro refere a tentativa de reasinatura de uma CONST já declarada.
+        O erro refere a tentativa de assinar novamente uma CONST já declarada. 
         ERROR: TypeError: Assignment to constant variable.
       */
       console.warn(`Resultado da tentativa de reasinar a CONST PESSOA: ${error}`);
@@ -182,7 +181,7 @@
       
     } catch (error) {      
       /**
-        O erro refere a tentativa de reasinatura de uma PESSOA já declarada.
+        O erro refere a tentativa de assinar novamente uma CONST já declarada. 
         ERROR: TypeError: Assignment to constant variable.
       */
       console.warn(`Resultado da tentativa de reasinar a CONST ESCOLA: ${error}`);
