@@ -170,23 +170,19 @@
 
     console.log(`Valor da CONST ESCOLA: ${JSON.stringify(ESCOLA)}`);
     
-    try {
-      /**
-        Aqui estamos tentando atribuir um novo tipo em ESCOLA, antes era um Array, e, 
-        agora estamos atribuir um tipo String.
-      */      
-      
-      ESCOLA = [];       
-      
-    } catch (error) {      
-      /**
-        O erro refere a tentativa de assinar novamente uma CONST já declarada. 
-        ERROR: TypeError: Assignment to constant variable.
-      */
-      console.warn(`Resultado da tentativa de reasinar a CONST ESCOLA: ${error}`);
-      // ERROR: TypeError: Assignment to constant variable.
-      console.log(''); // Inserin
-    }
+    (() => {
+      function FunctionEscopo() {
+        try {
+          console.log(`Escopo: ${escopo}`)
+        } catch (error) {
+          console.warn(`Resultado da tentativa de imprimir o let escopo: ${error}`);
+          console.log(''); // Inserin
+        }
+
+      }
+
+      FunctionEscopo();
+    })();
 
   </script>
 </body>
