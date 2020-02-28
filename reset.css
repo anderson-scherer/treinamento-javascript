@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300|Open+Sans:300&display=swap');
 
 * {
-  font-weight: 300;;
+  font-weight: 300;
   margin: 0;
   padding: 0; 
   position: relative;   
@@ -20,6 +20,22 @@ html {
 body {
   font-family: 'Open Sans';
   background-color: #535959;  
+}
+
+strong {
+  font-weight: 600;
+  color: orange;
+}
+
+em {
+  font-style: italic;
+  color: orange;
+}
+
+strong em,
+em strong {
+  font-weight: 600;
+  font-style: italic;
 }
 
 h1,
