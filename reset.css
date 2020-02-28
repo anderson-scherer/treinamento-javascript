@@ -3,7 +3,8 @@
 * {
   font-weight: 300;;
   margin: 0;
-  padding: 0;    
+  padding: 0; 
+  position: relative;   
 }
 
 *,
@@ -18,9 +19,7 @@ html {
 
 body {
   font-family: 'Open Sans';
-  background-color: #535959;
-  min-width: 100vw;
-  min-height: 100vh;
+  background-color: #535959;  
 }
 
 h1,
@@ -47,7 +46,6 @@ p {
 body header {  
   display: flex;  
   flex-direction: column;
-  padding: 25px;
-  color: white;
+  padding: 25px;  
 }
 
